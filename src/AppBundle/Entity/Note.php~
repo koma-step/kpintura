@@ -1,0 +1,60 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Note
+ *
+ * @ORM\Table(name="note", indexes={@ORM\Index(name="fk_note_visiteur", columns={"fk_visiteur"}), @ORM\Index(name="fk_note_article", columns={"fk_article"})})
+ * @ORM\Entity
+ */
+class Note
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note", type="integer", nullable=false)
+     */
+    private $note;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Article
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fk_article", referencedColumnName="id")
+     * })
+     */
+    private $fkArticle;
+
+    /**
+     * @var \AppBundle\Entity\Visiteur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Visiteur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fk_visiteur", referencedColumnName="id")
+     * })
+     */
+    private $fkVisiteur;
+
+
+}
+

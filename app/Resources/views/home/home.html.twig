@@ -1,0 +1,50 @@
+{% extends "home/layout.html.twig" %}
+
+{% block content %}
+    <div id="background" class="image-load"></div>
+    <div id="home-container">
+        <div id="button-container">
+            <div class="button" id="galerie">
+                <div class="text">Galerie</div>
+            </div>
+            <div class="button" id="contact">
+                <div class="text">ConTacT</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block add_scripts %}
+    <script type="text/javascript">
+        const my_articles = [{% for art in articles %}
+            {
+                name: '{{ art.name }}',
+                title: "{{ art.title }}",
+                description: "{{ art.description }}"
+            },{% endfor %}
+        ];
+    </script>
+
+    {% javascripts
+    "@AppBundle/Resources/public/js/jquery/isotope.pkgd.min.js"
+    "@AppBundle/Resources/public/js/jquery/jquery.waitforimages/jquery.waitforimages.js"
+    "@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.js"
+    "@AppBundle/Resources/public/js/views/document.js"
+    "@AppBundle/Resources/public/js/views/home.js"
+    "@AppBundle/Resources/public/js/views/galerie.js"
+    "@AppBundle/Resources/public/js/views/media.js"
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block add_stylesheets %}
+    {% stylesheets filter='cssrewrite'
+    "@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.css"
+    "@AppBundle/Resources/public/css/views/home.css"
+    "@AppBundle/Resources/public/css/views/galerie.css"
+    "@AppBundle/Resources/public/css/views/media.css"
+    %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

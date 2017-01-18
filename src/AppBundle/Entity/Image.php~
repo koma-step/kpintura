@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Image
+ *
+ * @ORM\Table(name="image", indexes={@ORM\Index(name="fk_image_article", columns={"fk_article"})})
+ * @ORM\Entity
+ */
+class Image
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fk_article", type="integer", nullable=true)
+     */
+    private $fkArticle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="guid", type="string", length=32, nullable=false)
+     */
+    private $guid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ext", type="string", length=5, nullable=false)
+     */
+    private $ext;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

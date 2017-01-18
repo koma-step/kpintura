@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        <div class="col-md-3">
+            <div class="form-group label-floating is-empty">
+                {{ form_label(form.name) }}
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name) }}
+                <span class="material-input"></span>
+            </div>
+            <div class="form-group label-floating is-empty">
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+                <span class="material-input"></span>
+            </div>
+            <div class="form-group label-floating is-empty">
+                {{ form_label(form.username) }}
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username) }}
+                <span class="material-input"></span>
+            </div>
+            <div class="form-group label-floating is-empty">
+                {{ form_label(form.plainPassword.first) }}
+                {{ form_errors(form.plainPassword.first) }}
+                {{ form_widget(form.plainPassword.first) }}
+                <span class="material-input"></span>
+            </div>
+            <div class="form-group label-floating is-empty">
+                {{ form_label(form.plainPassword.second) }}
+                {{ form_errors(form.plainPassword.second) }}
+                {{ form_widget(form.plainPassword.second) }}
+                <span class="material-input"></span>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary pull-right" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{% endblock %}

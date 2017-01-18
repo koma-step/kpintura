@@ -1,0 +1,79 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Article
+ *
+ * @ORM\Table(name="article", indexes={@ORM\Index(name="fk_article_lieu", columns={"fk_iieu"}), @ORM\Index(name="article_titre", columns={"titre"})})
+ * @ORM\Entity
+ */
+class Article
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="guid", type="string", length=32, nullable=false)
+     */
+    private $guid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=50, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", length=65535, nullable=true)
+     */
+    private $content;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Lieu
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Lieu")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fk_iieu", referencedColumnName="id")
+     * })
+     */
+    private $fkIieu;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", inversedBy="fkArticle")
+     * @ORM\JoinTable(name="l_article_tag",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="fk_article", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="fk_tag", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $fkTag;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fkTag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

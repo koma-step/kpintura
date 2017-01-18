@@ -1,0 +1,20 @@
+<div id="galerie_container" class="loading" data-mcs-theme="inset-3">
+    <div class="menu_container">
+        <span class="amokicon icon-menu"></span>
+        <div class="galerie-dropdown-menu">
+            <div class="item-dropdown">
+                <span class="amokicon icon-return"></span>
+            </div>
+            <div class="item-dropdown">
+                <span class="amokicon icon-contact"></span>
+            </div>
+        </div>
+    </div>
+    {% for art in articles %}
+        {% if art.image.0 is defined %}
+            <div class="grid-image" style="background-image: url('/images/uploads/big/{{ art.image.0 }}');">
+                <div class="grid-layer"></div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

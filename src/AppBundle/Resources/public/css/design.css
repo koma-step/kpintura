@@ -1,0 +1,186 @@
+body{
+	padding-top: 40px;
+}
+
+.background-index{
+	width: 100%;
+	height: 100%;
+}
+
+.footer{
+	background-color: #222;
+	color: white;
+	position: relative;
+	margin-top: 80px;
+	width: 100%;
+	height: 100px;
+}
+
+.starbox-div{
+}
+
+#starbox-hint{
+	margin-top: -20px;
+	height: 20px;
+}
+
+.starbox-note-stats{
+	margin-left: -80px;
+}
+
+.starbox{
+	width: 14%;
+	height: 10%;
+}
+
+.starbox-passive{
+	background: url(/images/komapintura/starbox-passive.png) no-repeat;
+}
+
+.starbox-active{
+	background: url(/images/komapintura/starbox-active.png) no-repeat;
+}
+
+.starbox-selected{
+	background: url(/images/komapintura/starbox-active-selected.png) no-repeat;
+}
+
+.page-container{
+	height: 100%; !important
+	width: 100%; !important
+}
+
+.articleTitle:hover, .articleTitle:focus {
+    text-decoration: none;
+}
+
+#btn-logout > .btn-danger{
+	color: white;
+	font-weight: bold;
+}
+
+#btn-logout{
+	margin-left: 20px;
+	margin-top: -7px;
+}
+
+.commentForm{
+	margin-top: 20px;
+}
+
+.comments{
+	margin-top: 20px;
+}
+
+#div_upload_img > input{
+	padding-top: 0;
+}
+
+.btn_img{
+	z-index: 1;
+	position: absolute;
+}
+
+#errorPanel {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.notif{
+	width: 16px;
+	border-radius: 100px;
+	border: 0;
+	color: white;
+	font-weight: bold;
+}
+
+.notif_alert{
+	background-color: red;
+}
+
+.notif_passiv{
+	background-color: grey;
+}
+
+.notif_activ{
+	background-color: #46b8da;
+}
+
+.arrow_notif{
+	color: red;
+}
+
+.input-upload-image{
+	margin-top: 5px;
+	height:25px; 
+	padding: 0px
+}
+
+.search-form{
+	margin-top: 11px;
+	width: 0px;
+    transition: width 0.5s ease-in-out 0s;
+}
+
+.search-form:hover{
+	width: 220px;
+    transition: width 0.5s ease-in-out 0s;
+}
+
+.search-input{
+	height: 28px;
+	opacity: 0;
+    transition: width 0.5s ease-in-out 0s;
+}
+
+.search-input:hover, .search-input:focus{
+	width: 181px;
+	opacity: 1;
+    transition: width 0.8s ease-in-out 0s,
+    			opacity 0.5s ease-in-out 0s;
+}
+
+.div-search-list{
+	margin-top: 20px;
+}
+
+.main-search-form{
+	width: 100%;
+}
+
+.main-search-input{
+	height: 28px; !important
+}
+
+.search-result{
+
+}
+
+.search-result-head{
+
+}
+
+.search-result-body{
+	
+	margin-left: -30px;
+}
+
+.search-result-item{
+	margin-top: 10px;
+}
+
+.article-title-search{
+
+}
+
+.contact-form{
+	margin-top: 20px;
+}
+
+.description-contact{
+	margin-top: 20px;
+}
+
+.search-select-locality{
+	width: 200px;
+}

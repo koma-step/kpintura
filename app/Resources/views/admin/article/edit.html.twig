@@ -1,0 +1,67 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4 class="title">Ajouter un article</h4>
+                <p class="category">Renseignez les informations nécessaires</p>
+            </div>
+            <div class="card-content">
+            {{ form_start(form) }}
+                <div class="clearfix"></div>
+
+                <button type="submit" id="_submit" name="_submit" class="btn btn-primary pull-right">Enregistrer</button>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group label-floating">
+                            {{ form_label(form.titre) }}
+                            {{ form_widget(form.titre) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group label-floating">
+                            {{ form_label(form.description) }}
+                            {{ form_widget(form.description) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="upload-group">
+                            <div class="upload-container">
+                                {{ form_row(form.file) }}
+                                <img class="media_preview" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block add_scripts %}
+<script type="text/javascript">
+    function mediaSelected(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var value = e.target.result;
+                $(input).parent().next('.media_preview').attr('src', value);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("input[name=article\\[file\\]").change(function(){
+        mediaSelected(this);
+    });
+</script>
+{% endblock %}

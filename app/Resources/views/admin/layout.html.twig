@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% stylesheets filter='cssrewrite'
+        "@AppBundle/Resources/public/lib/dashboard/css/bootstrap.min.css"
+        "@AppBundle/Resources/public/lib/dashboard/css/material-dashboard.css"
+        "@AppBundle/Resources/public/lib/dashboard/css/demo.css"
+        "@AppBundle/Resources/public/lib/dashboard/css/font-awesome.min.css"
+        "@AppBundle/Resources/public/lib/dashboard/css/material-icons.css"
+        "@AppBundle/Resources/public/lib/dashboard/custom/custom.css"
+        %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% javascripts
+        "@AppBundle/Resources/public/lib/dashboard/js/jquery-3.1.0.min.js"
+        "@AppBundle/Resources/public/lib/dashboard/js/bootstrap.min.js"
+        "@AppBundle/Resources/public/lib/dashboard/js/bootstrap-notify.js"
+        "@AppBundle/Resources/public/lib/dashboard/js/demo.js"
+        "@AppBundle/Resources/public/lib/dashboard/js/material.min.js"
+        "@AppBundle/Resources/public/lib/dashboard/js/material-dashboard.js"
+        "@AppBundle/Resources/public/lib/dashboard/custom/custom.js"
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% block add_styles %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    <div class="content_wrapper">
+    {% image '@AppBundle/Resources/public/images/views/layout/sidebar.jpg' %}
+        <div class="sidebar" data-color="blue" data-image="{{ asset_url }}">
+    {% endimage %}
+            <div class="logo">
+                <a href="../" class="simple-text">
+                    KPintura
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="{%
+                    if app.request.get('_route') == 'fos_user_security_login'
+                    %}active{%
+                    endif %}">
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <i class="material-icons">dashboard</i>
+                            <p>Login</p>
+                        </a>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="{%
+                        if app.request.get('_route') == 'fos_user_registration_register'
+                        %}active{%
+                        endif %}">
+                            <a href="{{ path('fos_user_registration_register') }}">
+                                <i class="material-icons">dashboard</i>
+                                <p>Register</p>
+                            </a>
+                        </li>
+                        <li class="{%
+                        if app.request.get('_route') == 'article_add'
+                        %}active{%
+                        endif %}">
+                            <a href="{{ path('article_add') }}">
+                                <i class="material-icons">dashboard</i>
+                                <p>Article</p>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <div class="content" style="margin-top: 0;">
+                <div class="container-fluid">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% javascripts
+        "@AppBundle/Resources/public/js/admin/admin.js" %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% block add_scripts %}{% endblock %}
+{% endblock %}

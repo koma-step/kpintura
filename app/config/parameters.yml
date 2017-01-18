@@ -1,0 +1,13 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 36.0.0.2
+    database_port: 33606
+    database_name: kpintura
+    database_user: koma
+    database_password: amok
+    mailer_transport: smtp
+    mailer_host: 36.0.0.2
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    upload_directory: '%kernel.root_dir%/../app/data/uploads'

@@ -1,0 +1,58 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %} - Login{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <script type="application/javascript">
+            $(function() {
+                notify_error("login", "bad_auth");
+            });
+        </script>
+    {% endif %}
+
+    <div class="row">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4 class="title">Identifiez vous</h4>
+                <p class="category">Entrez vos identifiants de connexion</p>
+            </div>
+            <div class="card-content">
+                <form id="login_form" action="{{ path("fos_user_security_check") }}" method="post">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                    <input type="hidden" id="remember_me" name="_remember_me" value="on" />
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label">Identifiant</label>
+                                <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" required />
+                                <span class="material-input"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group label-floating is-empty">
+                                <label class="control-label">Mot de passe</label>
+                                <input type="password" name="_password" class="form-control" required />
+                                <span class="material-input"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="_submit" name="_submit" class="btn btn-primary pull-right">S'identifier</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block add_scripts %}
+{{ parent() }}
+    {% javascripts
+    "@AppBundle/Resources/public/js/admin/login.js" %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
