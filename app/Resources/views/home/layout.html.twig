@@ -6,12 +6,14 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    {% stylesheets filter='cssrewrite'
+    {% stylesheets
         '@AppBundle/Resources/public/css/layout.css'
         '@AppBundle/Resources/public/css/amokicon.css'
         '@AppBundle/Resources/public/css/infinite_loader.css'
-        '@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.css'
-        '@AppBundle/Resources/public/js/jquery/jquery.fancybox/jquery.fancybox.css' %}
+        '@AppBundle/Resources/public/js/vendor/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.css'
+        '@AppBundle/Resources/public/js/vendor/jquery.fancybox/jquery.fancybox.css'
+        filter='cssrewrite'
+    %}
     <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
     {% endstylesheets %}
 
@@ -48,12 +50,11 @@
 
     {% javascripts
         '@jquery'
-        '@AppBundle/Resources/public/js/layout.js'
-        '@AppBundle/Resources/public/js/jquery/jquery.waitforimages/jquery.waitforimages.min.js'
-        '@AppBundle/Resources/public/js/jquery/jquery.fancybox/jquery.fancybox.pack.js'
-        '@AppBundle/Resources/public/js/jquery/vague/vague.js'
-        '@AppBundle/Resources/public/js/jquery/isotope.pkgd.min.js'
-        '@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.js' %}
+        '@AppBundle/Resources/public/js/vendor/jquery.waitforimages/jquery.waitforimages.min.js'
+        '@AppBundle/Resources/public/js/vendor/jquery.fancybox/jquery.fancybox.pack.js'
+        '@AppBundle/Resources/public/js/vendor/vague/vague.js'
+        '@AppBundle/Resources/public/js/vendor/isotope.pkgd.min.js'
+        '@AppBundle/Resources/public/js/vendor/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 

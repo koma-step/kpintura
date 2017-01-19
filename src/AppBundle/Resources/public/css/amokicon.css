@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'amokicon';
-  src:  url('/web/fonts/amokicon/amokicon.eot?iu1oir');
-  src:  url('/web/fonts/amokicon/amokicon.eot?iu1oir#iefix') format('embedded-opentype'),
-    url('/web/fonts/amokicon/amokicon.ttf?iu1oir') format('truetype'),
-    url('/web/fonts/amokicon/amokicon.woff?iu1oir') format('woff'),
-    url('/web/fonts/amokicon/amokicon.svg?iu1oir#amokicon') format('svg');
+  src:  url('../../../fonts/amokicon/amokicon.eot?iu1oir');
+  src:  url('../../../fonts/amokicon/amokicon.eot?iu1oir#iefix') format('embedded-opentype'),
+        url('../../../fonts/amokicon/amokicon.svg?iu1oir#amokicon') format('svg'),
+        url('../../../fonts/amokicon/amokicon.ttf?iu1oir') format('truetype'),
+        url('../../../fonts/amokicon/amokicon.woff?iu1oir') format('woff');
   font-weight: normal;
   font-style: normal;
 }

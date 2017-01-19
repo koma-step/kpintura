@@ -16,7 +16,7 @@
 
 {% block add_scripts %}
     <script type="text/javascript">
-        const my_articles = [{% for art in articles %}
+        const MY_ARTICLES = [{% for art in articles %}
             {
                 name: '{{ art.name }}',
                 title: "{{ art.title }}",
@@ -26,24 +26,26 @@
     </script>
 
     {% javascripts
-    "@AppBundle/Resources/public/js/jquery/isotope.pkgd.min.js"
-    "@AppBundle/Resources/public/js/jquery/jquery.waitforimages/jquery.waitforimages.js"
-    "@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.js"
-    "@AppBundle/Resources/public/js/views/document.js"
-    "@AppBundle/Resources/public/js/views/home.js"
-    "@AppBundle/Resources/public/js/views/galerie.js"
-    "@AppBundle/Resources/public/js/views/media.js"
+        "@AppBundle/Resources/public/js/vendor/isotope.pkgd.min.js"
+        "@AppBundle/Resources/public/js/vendor/jquery.waitforimages/jquery.waitforimages.js"
+        "@AppBundle/Resources/public/js/vendor/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.js"
+        "@AppBundle/Resources/public/js/controller/ViewController.js"
+        "@AppBundle/Resources/public/js/controller/HomeController.js"
+        "@AppBundle/Resources/public/js/controller/GalerieController.js"
+        "@AppBundle/Resources/public/js/controller/MediaController.js"
+        "@AppBundle/Resources/public/js/views/Home.js"
     %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
+        <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
 
 {% block add_stylesheets %}
     {% stylesheets filter='cssrewrite'
-    "@AppBundle/Resources/public/js/jquery/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.css"
-    "@AppBundle/Resources/public/css/views/home.css"
-    "@AppBundle/Resources/public/css/views/galerie.css"
-    "@AppBundle/Resources/public/css/views/media.css"
+        "@AppBundle/Resources/public/js/vendor/jquery.mcustomscrollbar/jquery.mCustomScrollbar.min.css"
+        "@AppBundle/Resources/public/css/views/home.css"
+        "@AppBundle/Resources/public/css/views/galerie.css"
+        "@AppBundle/Resources/public/css/views/media.css"
+        filter='cssrewrite'
     %}
     <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
     {% endstylesheets %}

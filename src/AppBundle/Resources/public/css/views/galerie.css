@@ -25,7 +25,7 @@
 }
 #galerie_container{
 	opacity: 1;
-	transition: opacity 0.5s;
+	transition: opacity 0.5s, height 0.5s;
 }
 
 .menu_container {
@@ -34,7 +34,7 @@
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 1000;
+  z-index: 10000;
 
   transition: all 0.5s;
 }
@@ -122,6 +122,15 @@
   -webkit-box-shadow: 0px 5px 7px rgba(0,0,0, 0.6);
   -o-box-shadow:    0px 5px 7px rgba(0,0,0, 0.6);
   box-shadow:     0px 5px 7px rgba(0,0,0, 0.6);
+}
+
+.grid-media.grow-up {
+    position: fixed !important;
+    top:0 !important;
+    left:0 !important;
+    z-index: 1001 !important;
+    background-size: contain;
+    background-color: #000;
 }
 
 .grid-media .grid-layer {
